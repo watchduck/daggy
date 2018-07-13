@@ -12,10 +12,10 @@
         <button @click="deleteNode">delete</button>
 
         <h2>Relatives</h2>
-        <node-relatives v-for="(r, i) in relativesInBothDirections"
-                        :relatives="r"
+        <node-relatives v-for="(relativesInOneDirection, i) in relativesInBothDirections"
+                        :relatives="relativesInOneDirection"
                         :downInt="i"
-                        :parentNodeDebug="id"
+                        :currentNodeDebug="id"
         ></node-relatives>
     </div>
 </template>

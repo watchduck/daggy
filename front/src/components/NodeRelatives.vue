@@ -2,18 +2,15 @@
     <div v-if="relatives.length > 0">
         <h3>{{term.direct.plural}}</h3>
 
-        <table>
-            <tr v-for="r in relatives">
-                <router-link :to="{name: 'node', params: {id: r.id, name: r.name}}"
-                             tag="td"
-                             @click.native="rememberDebug(r.id)">
-                    <a>{{r.id}}</a>
+        <ul>
+            <tr v-for="relative in relatives">
+                <router-link :to="{name: 'node', params: {id: relative.id, name: relative.name}}"
+                             tag="li"
+                             @click.native="clickDebug(relative.id)">
+                    <a>{{relative.id}}: {{relative.name}}</a>
                 </router-link>
-                <td>
-                    {{r.name}}
-                </td>
             </tr>
-        </table>
+        </ul>
     </div>
 </template>
 
@@ -35,21 +32,10 @@
             }}
         },
         methods: {
-            rememberDebug(id) {
-                console.log(this.$props.parentNodeDebug + ' click ' + id)
+            clickDebug(clicked_id) {
+                console.log(this.$props.currentNodeDebug + ' click ' + clicked_id)
             }
         },
-        props: ['relatives', 'downInt', 'parentNodeDebug']
+        props: ['relatives', 'downInt', 'currentNodeDebug']
     }
 </script>
-
-<style>
-    td {
-        border: 1px solid black;
-        background-color: burlywood;
-        padding: 2px 5px;
-    }
-    table {
-        border-collapse: collapse;
-    }
-</style>
