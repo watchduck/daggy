@@ -19,6 +19,7 @@ implemented using
 
 ## Example
 
-There is a functional read-only version of the first commit, created to show a bug in the frontend:<br>
+There is a functional read-only version of the first commit, created to show a
+[bug in the frontend](https://stackoverflow.com/questions/51332783):<br>
 Front: http://daggy1.watchduck.net/nodes &nbsp;
 Back: http://back-daggy1.watchduck.net/api/node/
