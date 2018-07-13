@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.png
+.idea/*
+manage.py
