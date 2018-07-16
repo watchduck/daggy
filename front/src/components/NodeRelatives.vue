@@ -3,13 +3,12 @@
         <h3>{{term.direct.plural}}</h3>
 
         <ul>
-            <tr v-for="relative in relatives">
-                <router-link :to="{name: 'node', params: {id: relative.id, name: relative.name}}"
-                             tag="li"
-                             @click.native="clickDebug(relative.id)">
-                    <a>{{relative.id}}: {{relative.name}}</a>
-                </router-link>
-            </tr>
+            <router-link v-for="relative in relatives"
+                         :to="{name: 'node', params: {id: relative.id, name: relative.name}}"
+                         tag="li"
+                         @click.native="clickDebug(relative.id)">
+                <a>{{relative.id}}: {{relative.name}}</a>
+            </router-link>
         </ul>
     </div>
 </template>
