@@ -2,14 +2,10 @@
     <div v-if="relatives.length > 0">
         <h3>{{term.direct.plural}}</h3>
 
-        <ul>
-            <router-link v-for="relative in relatives"
-                         :to="{name: 'node', params: {id: relative.id, name: relative.name}}"
-                         tag="li"
-                         @click.native="clickDebug(relative.id)">
-                <a>{{relative.id}}: {{relative.name}}</a>
-            </router-link>
-        </ul>
+        <router-link v-for="relative in relatives"
+                     :to="{name: 'node', params: {id: relative.id, name: relative.name}}">
+            {{relative.id}}: {{relative.name}}<br>
+        </router-link>
     </div>
 </template>
 
@@ -30,11 +26,6 @@
                 }
             }}
         },
-        methods: {
-            clickDebug(clicked_id) {
-                console.log(this.$props.currentNodeDebug + ' click ' + clicked_id)
-            }
-        },
-        props: ['relatives', 'downInt', 'currentNodeDebug']
+        props: ['relatives', 'downInt']
     }
 </script>

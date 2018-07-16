@@ -15,7 +15,6 @@
         <node-relatives v-for="(relativesInOneDirection, i) in relativesInBothDirections"
                         :relatives="relativesInOneDirection"
                         :downInt="i"
-                        :currentNodeDebug="id"
         ></node-relatives>
     </div>
 </template>
@@ -51,7 +50,6 @@
         },
         watch: {
             '$route'(to, from) {
-                console.log(from.params.id + ' ----> ' + to.params.id)
                 this.id = to.params.id
                 this.name = to.params.name
                 this.newName = to.params.name
