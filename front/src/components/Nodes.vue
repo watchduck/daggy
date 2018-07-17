@@ -2,11 +2,14 @@
     <div>
         <h1>Nodes</h1>
 
-        <router-link v-for="node in nodes"
-                     :to="{name: 'node', params: {id: node.id, name: node.name}}"
-                     active-class="active">
-            {{node.id}}: {{node.name}}<br>
-        </router-link>
+        <ul>
+            <router-link v-for="node in nodes"
+                         :to="{name: 'node', params: {id: node.id, name: node.name}}"
+                         tag="li"
+                         active-class="active">
+                <a>{{node.id}}: {{node.name}}</a>
+            </router-link>
+        </ul>
     </div>
 </template>
 
@@ -18,9 +21,6 @@
             nodes() {
                 return this.$store.state.nodes
             },
-        },
-        created() {
-            this.$store.dispatch('updateNodes')
         }
     }
 </script>

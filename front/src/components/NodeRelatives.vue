@@ -2,10 +2,13 @@
     <div v-if="relatives.length > 0">
         <h3>{{term.direct.plural}}</h3>
 
-        <router-link v-for="relative in relatives"
-                     :to="{name: 'node', params: {id: relative.id, name: relative.name}}">
-            {{relative.id}}: {{relative.name}}<br>
-        </router-link>
+        <ul>
+            <router-link v-for="relative in relatives"
+                         :to="{name: 'node', params: {id: relative.id, name: relative.name}}"
+                         tag="li">
+                <a>{{relative.id}}: {{relative.name}}</a>
+            </router-link>
+        </ul>
     </div>
 </template>
 
